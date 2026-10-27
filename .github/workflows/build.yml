@@ -7,6 +7,10 @@ jobs:
       image: kivy/buildozer:latest
     steps:
     - uses: actions/checkout@v4
+    - name: Install system dependencies
+      run: |
+        apt-get update
+        apt-get install -y libffi-dev libssl-dev libltdl-dev libtool pkg-config
     - name: Build with Buildozer
       run: |
         yes | sdkmanager --licenses || true

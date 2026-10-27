@@ -10,15 +10,15 @@ orientation = portrait
 fullscreen = 0
 
 android.permissions = INTERNET
-android.api = 33
-android.minapi = 24
-android.ndk = 25b
-android.ndk_api = 24
-android.archs = arm64-v8a, armeabi-v7a
+android.api = 31
+android.minapi = 21
+# Изменили NDK на стабильный 23b и оставили только arm64 (современные телефоны)
+android.ndk = 23b
+android.ndk_api = 21
+android.archs = arm64-v8a
 android.accept_sdk_license = True
 
-# Эти две строки заставляют сборщик использовать свежий код и не искать старые бинарники
-p4a.branch = develop
+p4a.branch = master
 android.clear_cache = 1
 
 [buildozer]

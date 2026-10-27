@@ -2,24 +2,15 @@ name: Build APK
 on: [push, workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    container:
+      image: kivy/buildozer:latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
-    - name: Install dependencies
-      run: |
-        sudo apt update
-        sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo6 cmake libffi-dev libssl-dev automake autopoint gettext
-        pip install --upgrade buildozer cython
-    - name: Clean buildozer cache
-      run: |
-        rm -rf ~/.buildozer/android/packages
-        rm -rf ~/.buildozer/android/platform
     - name: Build with Buildozer
-      run: buildozer android debug
+      run: |
+        yes | sdkmanager --licenses || true
+        buildozer android debug
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:

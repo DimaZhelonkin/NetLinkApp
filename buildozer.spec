@@ -5,7 +5,7 @@ package.domain = org.test
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 1.0
-requirements = python3,kivy==2.3.0,pyjnius
+requirements = python3,kivy,pyjnius
 orientation = portrait
 fullscreen = 0
 
@@ -21,3 +21,4 @@ log_level = 2
 
 [buildozer]
 warn_on_root = 0
+p4a.branch = master

@@ -5,7 +5,7 @@ package.domain = org.test
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 1.0
-requirements = python3,kivy,pyjnius
+requirements = python3==3.11.1,kivy,pyjnius
 orientation = portrait
 fullscreen = 0
 
@@ -17,8 +17,8 @@ android.ndk_api = 24
 android.archs = arm64-v8a
 android.accept_sdk_license = True
 
-# Используем самую свежую ветку p4a для совместимости с Gradle
-p4a.branch = develop
+# Используем стабильную ветку p4a вместо develop, чтобы избежать падений компилятора
+# p4a.branch = develop
 android.clear_cache = 1
 
 [buildozer]

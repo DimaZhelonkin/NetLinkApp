@@ -18,8 +18,8 @@ source.include_exts = py,png,jpg,kv,atlas
 version = 1.0
 
 # (list) Application requirements
-# Здесь мы жестко зафиксировали рабочую версию Python
-requirements = python3==3.11.1,kivy,pyjnius
+# Изменено: убрана жесткая привязка к минорной версии для стабильной сборки
+requirements = python3,kivy,pyjnius
 
 # (str) Supported orientations (valid options are: landscape, portrait, all)
 orientation = portrait
@@ -37,7 +37,7 @@ android.api = 33
 android.minapi = 24
 
 # (str) Android NDK version to use
-android.ndk = 25b
+android.ndk = 25c
 
 # (int) Android NDK API to use
 android.ndk_api = 24

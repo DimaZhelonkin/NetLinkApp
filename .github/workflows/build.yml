@@ -2,14 +2,14 @@ name: Build APK
 on: [push, workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python 3.11
+      - name: Set up Python 3.10
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
       - name: Install system dependencies
         run: |
@@ -26,8 +26,6 @@ jobs:
           rm -rf .buildozer/
           rm -rf ~/.buildozer/
 
-      - name: Build APK with Force Python Flags
+      - name: Build APK
         run: |
-          # Намертво привязываем внутренности buildozer к python3.11
-          export P4A_hostpython=$(which python3)
           python3 -m buildozer -v android debug
